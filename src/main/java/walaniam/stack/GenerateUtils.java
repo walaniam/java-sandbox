@@ -3,6 +3,7 @@ package walaniam.stack;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -28,6 +29,9 @@ public class GenerateUtils {
             right.add("r_" + random);
         });
 
-        return new Tuple<>(left, right);
+        return Tuple.of(
+                Collections.unmodifiableSet(left),
+                Collections.unmodifiableSet(right)
+        );
     }
 }
